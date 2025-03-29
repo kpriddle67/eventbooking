@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Service
@@ -56,6 +57,7 @@ public class BookingServiceImpl implements BookingService {
             if (existingWaitingListEntry == null) {
                 WaitingList waitingList = new WaitingList();
                 waitingList.setUserName(userName);
+                waitingList.setDateAdded(LocalDateTime.now());
                 waitingList.setEvent(event);
                 waitingListRepository.save(waitingList);
                 notifyWaitingList(eventId, userName);

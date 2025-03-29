@@ -3,6 +3,8 @@ package com.kp.eventmanagement.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -13,6 +15,7 @@ public class Event {
     private Long id;
     private String name;
     private String description;
+    private LocalDate eventDate;
     private Integer totalSeats;
     private Integer bookedSeats = 0;
 

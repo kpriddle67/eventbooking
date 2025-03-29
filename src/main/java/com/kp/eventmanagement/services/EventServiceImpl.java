@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -29,6 +30,7 @@ public class EventServiceImpl implements EventService {
     private ThreadPoolTaskExecutor taskExecutor;
 
     public Event createEvent(Event event) {
+        event.setEventDate(LocalDate.now());
         return eventRepository.save(event);
     }
 

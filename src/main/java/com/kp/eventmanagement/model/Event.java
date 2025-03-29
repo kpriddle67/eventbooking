@@ -19,6 +19,10 @@ public class Event {
     private Integer totalSeats;
     private Integer bookedSeats = 0;
 
+    @ManyToOne
+    @JoinColumn(name = "address_postal_code")
+    private Address address;
+
 //    @OneToMany(mappedBy = "event")
 //    private List<Booking> bookings;
 }
